@@ -1,12 +1,12 @@
-plugin.tx_t3netua.view {
+plugin.tx_legion.view {
 	templateRootPath = EXT:{$siteProvider}/Resources/Private/Templates/
 	partialRootPath  = EXT:{$siteProvider}/Resources/Private/Partials/
 	layoutRootPath   = EXT:{$siteProvider}/Resources/Private/Layouts/
 }
 
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:t3netua/Configuration/TypoScript/system" extensions="txt">
-#<INCLUDE_TYPOSCRIPT: source="DIR:EXT:t3netua/Configuration/TypoScript/ext" extensions="txt">
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:t3netua/Configuration/TypoScript/content" extensions="txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion/Configuration/TypoScript/system" extensions="txt">
+#<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion/Configuration/TypoScript/ext" extensions="txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion/Configuration/TypoScript/content" extensions="txt">
 
 
 lib.settings {

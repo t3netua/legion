@@ -1,4 +1,4 @@
-siteProvider = t3netua
+siteProvider = legion
 csspath = typo3conf/ext/{$siteProvider}/Resources/Public/css/
 jspath  = typo3conf/ext/{$siteProvider}/Resources/Public/js/
 tspath	= typo3conf/ext/{$siteProvider}/Configuration/TypoScript/

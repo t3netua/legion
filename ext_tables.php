@@ -4,8 +4,8 @@ if (!defined('TYPO3_MODE')) {
 }
 
 TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Site templates');
-\FluidTYPO3\Flux\Core::registerProviderExtensionKey('legion', 'Page');
-\FluidTYPO3\Flux\Core::registerProviderExtensionKey('legion', 'Content');
+\FluidTYPO3\Flux\Core::registerProviderExtensionKey('legion_site', 'Page');
+\FluidTYPO3\Flux\Core::registerProviderExtensionKey('legion_site', 'Content');
 
 //# Add page TSConfig
 $pageTsConfig = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl(

@@ -1,8 +1,12 @@
-siteProvider = legion
+siteProvider = legion_site
 csspath = typo3conf/ext/{$siteProvider}/Resources/Public/css/
 jspath  = typo3conf/ext/{$siteProvider}/Resources/Public/js/
-tspath	= typo3conf/ext/{$siteProvider}/Configuration/TypoScript/
 
+plugin.tx_legionsite.view {
+	templateRootPath = EXT:{$siteProvider}/Resources/Private/Templates/
+	partialRootPath  = EXT:{$siteProvider}/Resources/Private/Partials/
+	layoutRootPath   = EXT:{$siteProvider}/Resources/Private/Layouts/
+}
 ###################################################
 # Plugin FluidContentCore
 ###################################################

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" product-name="legion" date="2014-12-05T15:46:26+00:00">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="legion_site" date="2014-12-05T15:46:26+00:00">
 		<header/>
 		<body>
 			<trans-unit id="flux.fluidcontent">
@@ -10,7 +10,7 @@
 				<source>Fluid content element - Bootstrap rows/columns</source>
 			</trans-unit>			
 			<trans-unit id="flux.fluidpage.description">
-				<source>Description can be entered in LLL file locallang.xlf of extension provider</source>
+				<source>Description can be entered in LLL file locallang.xlf of extension legion_site</source>
 			</trans-unit>
 			<trans-unit id="flux.fluidpage">
 				<source>1 column page</source>
@@ -22,7 +22,7 @@
 				<source>1 column page My</source>
 			</trans-unit>
 			<trans-unit id="flux.fluidpage.description">
-				<source>Description can be entered in LLL file locallang.xlf of extension provider</source>
+				<source>Description can be entered in LLL file locallang.xlf of extension legion_site</source>
 			</trans-unit>
 		</body>
 	</file>

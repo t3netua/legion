@@ -1,7 +1,7 @@
 <?php
 
 /***************************************************************
- * Extension Manager/Repository config file for ext "site_provider".
+ * Extension Manager/Repository config file for ext "legion_site".
  *
  * Auto generated 05-12-2014 15:46
  *
@@ -11,17 +11,17 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'Site Provider',
+	'title' => 'Site templates',
 	'description' => 'Template files and assets for this site',
 	'category' => 'misc',
 	'shy' => 0,
 	'version' => '0.0.1',
-	'dependencies' => 'cms,extbase,fluid,flux,fluidpages,fluidcontent,fluidcontent_core,news',
+	'dependencies' => 'cms,extbase,fluid,flux,fluidpages,fluidcontent,vhs',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
 	'module' => '',
-	'state' => 'stable',
+	'state' => 'experimental',
 	'uploadfolder' => 0,
 	'createDirs' => '',
 	'modify_tables' => '',
@@ -38,14 +38,12 @@ $EM_CONF[$_EXTKEY] = array(
 			'cms' => '',
 			'extbase' => '',
 			'fluid' => '',
+			'flux' => '',
 			
-			'flux' => '',			
 			'fluidpages' => '',
 			'fluidcontent' => '',
-			'fluidcontent_core' => '',
-
-			'news' => '',
-			),
+			'vhs' => '',
+		),
 		'conflicts' => array(
 		),
 		'suggests' => array(

@@ -1,14 +1,8 @@
 plugin.tx_legionsite.view {
 	templateRootPath = {$plugin.tx_legionsite.view.templateRootPath}
-	partialRootPath = {$plugin.tx_legionsite.view.partialRootPath}
-	layoutRootPath = {$plugin.tx_legionsite.view.layoutRootPath}
+	partialRootPath  = {$plugin.tx_legionsite.view.partialRootPath}
+	layoutRootPath   = {$plugin.tx_legionsite.view.layoutRootPath}
 }
-
-
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion_site/Configuration/TypoScript/system" extensions="txt">
-#<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion_site/Configuration/TypoScript/ext" extensions="txt">
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion_site/Configuration/TypoScript/content" extensions="txt">
-
 
 lib.settings {
 	page {
@@ -26,3 +20,7 @@ lib.settings {
 		}
 	}
 }
+
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion_site/Configuration/TypoScript/system" extensions="txt">
+#<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion_site/Configuration/TypoScript/ext" extensions="txt">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:legion_site/Configuration/TypoScript/content" extensions="txt">

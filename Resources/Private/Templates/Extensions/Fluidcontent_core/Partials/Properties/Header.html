@@ -4,6 +4,7 @@
 
 <flux:form.sheet name="header" label="LLL:sheets.header">
 	<flux:field.select name="settings.header.type" items="{settings.header.types}" default="{record.header_layout -> v:or(alternative: settings.header.type)}" label="LLL:fields.headerLevel" />
+	<flux:field.checkbox name="settings.header.hidden" label="Hide on frontend" />
 	<flux:field.select name="settings.header.className" renderMode="checkbox" size="3" minItems="0" maxItems="100" items="{settings.header.classNames}" label="LLL:fields.classNames" />
 </flux:form.sheet>
 

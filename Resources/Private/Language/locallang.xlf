@@ -4,8 +4,18 @@
 		<header/>
 		<body>
 			<trans-unit id="flux.fluidcontent">
-				<source>Fluid content element example</source>
+				<source>Bootstrap row/columns</source>
 			</trans-unit>
+			<trans-unit id="flux.fluidcontent.sheets.options" xml:space="preserve">
+				<source>Options</source>
+			</trans-unit>	
+			<trans-unit id="flux.fluidcontent.sheets.columns" xml:space="preserve">
+				<source>Columns</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidcontent.sheets.distance" xml:space="preserve">
+				<source>Margins and paddings</source>
+			</trans-unit>
+			
 			<trans-unit id="flux.fluid-row">
 				<source>Fluid content element - Bootstrap rows/columns</source>
 			</trans-unit>			
@@ -13,8 +23,11 @@
 				<source>Description can be entered in LLL file locallang.xlf of extension legion_site</source>
 			</trans-unit>
 			<trans-unit id="flux.fluidpage">
-				<source>1 column page</source>
+				<source>Home 1 column page</source>
 			</trans-unit>
+			<trans-unit id="flux.innerfluidpage">
+				<source>Inner 1 column page</source>
+			</trans-unit>			
 			<trans-unit id="flux.fluidpage2col">
 				<source>2 columns page</source>
 			</trans-unit>			

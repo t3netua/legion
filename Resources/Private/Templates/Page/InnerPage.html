@@ -3,11 +3,14 @@
 <f:layout name="Page" />
 
 <f:section name="Configuration">
-	<flux:form id="fluidpage" icon="{v:extension.path.resources(path: 'Icons/tabs.jpg')}">
+	<flux:form id="innerfluidpage" icon="{v:extension.path.resources(path: 'Icons/tabs.jpg')}">
 		<!-- Insert fields, sheets, grid, form section objects etc. here, in this flux:form tag -->
 	</flux:form>
 	<flux:grid>
 		<!-- Edit this grid to change the "backend layout" structure -->
+		<flux:grid.row>
+			<flux:grid.column colPos="1" colspan="4" name="picture" />
+		</flux:grid.row>		
 		<flux:grid.row>
 			<flux:grid.column colPos="0" colspan="4" name="main" />
 		</flux:grid.row>
@@ -15,5 +18,10 @@
 </f:section>
 
 <f:section name="Main">
-	<v:content.render column="0" />
+	<section class="sub_pic">
+		<v:content.render column="1" />
+	</section>
+	<div class="global indent">
+		<v:content.render column="0" />
+	</div>
 </f:section>

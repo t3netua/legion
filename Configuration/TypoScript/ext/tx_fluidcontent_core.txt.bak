@@ -1,14 +1,25 @@
-[global]
 plugin.tx_fluidcontentcore {
 	view {
-		extensionKey = fluidcontent_core
-		templateRootPath = {$plugin.tx_fluidcontentcore.view.templateRootPath}
-		partialRootPath = {$plugin.tx_fluidcontentcore.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_fluidcontentcore.view.layoutRootPath}
+		templateRootPath = EXT:legion_site/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/
+		partialRootPath  = EXT:legion_site/Resources/Private/Templates/Extensions/Fluidcontent_core/Partials/
+		layoutRootPath   = EXT:legion_site/Resources/Private/Templates/Extensions/Fluidcontent_core/Layouts/
 	}
 	settings {
 		defaults {
-			template = {$plugin.tx_fluidcontentcore.settings.defaults.template}
+			template = EXT:legion_site/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/CoreContent/Default.html	
+		}
+	}
+}
+plugin.tx_fluidcontentcore {
+	#view {
+	#	extensionKey = fluidcontent_core
+	#	templateRootPath = {$plugin.tx_fluidcontentcore.view.templateRootPath}
+	#	partialRootPath = {$plugin.tx_fluidcontentcore.view.partialRootPath}
+	#	layoutRootPath = {$plugin.tx_fluidcontentcore.view.layoutRootPath}
+	#}
+	settings {
+		defaults {
+			#template = {$plugin.tx_fluidcontentcore.settings.defaults.template}
 			variant =
 			version =
 			# mode of defaults usage. Possible values: "record", "preselect" or empty. When set to "record", default values will be saved in records when they are saved, but only if no variant or version was chosen. If set to "preselect" the values entered in defaults will be the initially selected values when creating or editing records. If set to anything else, defaults are used only when the record has empty values in variant or version but the defaults will not be saved to the database.

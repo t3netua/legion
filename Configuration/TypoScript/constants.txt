@@ -1,4 +1,5 @@
 siteProvider = legion_site
+underconstraction = 1
 csspath = typo3conf/ext/{$siteProvider}/Resources/Public/css/
 jspath  = typo3conf/ext/{$siteProvider}/Resources/Public/js/
 
@@ -18,7 +19,7 @@ plugin.tx_fluidcontentcore {
 	}
 	settings {
 		defaults {
-			template = EXT:fluidcontent_core/Resources/Private/Templates/CoreContent/Default.html
+			template = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/CoreContent/Default.html
 			variant =
 			version =
 			# mode of defaults usage. Possible values: "record", "preselect" or empty. When set to "record", default values will be saved in records when they are saved, but only if no variant or version was chosen. If set to "preselect" the values entered in defaults will be the initially selected values when creating or editing records. If set to anything else, defaults are used only when the record has empty values in variant or version but the defaults will not be saved to the database.
@@ -26,12 +27,12 @@ plugin.tx_fluidcontentcore {
 		}
 		header {
 			# cat=fluidcontent_core: header/110/type; type=options[H1=1, H2=2, H3=3, H4=4, H5=5, H6=6]; label=Default header type
-			type = 1
+			type = 3
 			# cat=fluidcontent_core: header/120/types; type=string; label=Available header types (comma separated)
 			types = 1,2,3,4,5,6
 			autoType = 2
 			# cat=fluidcontent_core: header/130/classNames; type=string; label=Available header CSS class names (comma separated)
-			classNames = page-header
+			classNames = title,title2
 			# cat=fluidcontent_core: header/140/classNames; type=string; label=Hide header if empty
 			hideIfEmpty = 1
 		}
@@ -57,7 +58,7 @@ plugin.tx_fluidcontentcore {
 # Plugin News
 ###################################################
 plugin.tx_news.view{
-	partialRootPath  = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/News/Partials/
 	templateRootPath = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/News/Templates/
+	partialRootPath  = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/News/Partials/
 	paginateRootPath = EXT:{$siteProvider}/Resources/Private/Templates/ViewHelpers/Widget/Paginate/
 }

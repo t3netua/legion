@@ -1,0 +1,20 @@
+page {
+	config {
+		compressJs = 0
+		compressCss = 0
+	}
+}
+plugin.tx_scriptmerger {
+	externalFileCacheLifetime = 86400
+	css {
+		compress {
+			enable = 0
+		}
+	}
+	javascript {
+		parseBody = 1
+		compress {
+			enable = 0
+		}
+	}
+}

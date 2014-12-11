@@ -1,0 +1,21 @@
+page.meta.keywords.field = keywords
+page.meta.description.field = description
+
+
+lib.titleNews = RECORDS
+lib.titleNews {
+	stdWrap.if.isTrue.data = GP:tx_news_pi1|news
+	dontCheckPid = 1
+	tables = tx_news_domain_model_news
+	source {
+		data = GP:tx_news_pi1|news
+		intval = 1
+	}
+	conf.tx_news_domain_model_news = TEXT
+	conf.tx_news_domain_model_news {
+		field = title
+		htmlSpecialChars = 1
+	}
+	#wrap =  <li>&nbsp;<span>&gt;</span>&nbsp;</li><li>|</li>
+	wrap =  <li>|</li>
+}

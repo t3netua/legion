@@ -1,0 +1,19 @@
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:layout name="Page" />
+
+<f:section name="Configuration">
+	<flux:form id="fluidpage" icon="{v:extension.path.resources(path: 'Icons/tabs.jpg')}">
+		<!-- Insert fields, sheets, grid, form section objects etc. here, in this flux:form tag -->
+	</flux:form>
+	<flux:grid>
+		<!-- Edit this grid to change the "backend layout" structure -->
+		<flux:grid.row>
+			<flux:grid.column colPos="0" colspan="4" name="main" />
+		</flux:grid.row>
+	</flux:grid>
+</f:section>
+
+<f:section name="Main">
+	<v:content.render column="0" />
+</f:section>

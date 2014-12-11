@@ -1,0 +1,42 @@
+#################
+#### TCEFORM ####
+#################
+TCEFORM {
+    pages {
+        layout.disabled = 1
+    }
+    tt_content {
+        header_layout {
+            altLabels {
+                1 = H1
+                2 = H2
+                3 = H3
+                4 = H4
+                5 = H5
+            }
+        }
+	}
+}
+		
+#################
+#### TCEMAIN ####
+#################
+TCEMAIN {
+    permissions {
+        groupid = 1
+        user = show, editcontent, edit, new, delete
+        group = show, editcontent, edit, new, delete
+        everybody = 
+    }
+    translateToHidden = 1
+    clearCacheCmd = all
+}
+
+#################
+#### NEWS    ####
+#################
+tx_news {
+	templateLayouts {
+		100 = Slider
+	}
+}

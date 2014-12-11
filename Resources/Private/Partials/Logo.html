@@ -1,0 +1,10 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+
+<f:if condition="{v:page.info(field: 'uid')} == {v:var.typoscript(path: 'lib.settings.page.home')}">
+	<f:then>
+		<span><v:content.render pageUid="{v:var.typoscript(path: 'lib.settings.folder.globalcontent')}" contentUids="{0: '{v:var.typoscript(path: \'lib.settings.images.logo\')}'}" render="1"/></span>
+	</f:then>
+	<f:else>
+		<a href="/"><v:content.render pageUid="{v:var.typoscript(path: 'lib.settings.folder.globalcontent')}" contentUids="{0: '{v:var.typoscript(path: \'lib.settings.images.logo\')}'}" render="1"/></a>
+	</f:else>
+</f:if>	

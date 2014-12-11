@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="t3netua" date="2014-12-05T15:46:26+00:00">
+		<header/>
+		<body>
+			<trans-unit id="flux.fluidcontent">
+				<source>Fluid content element example</source>
+			</trans-unit>
+			<trans-unit id="flux.fluid-row">
+				<source>Fluid content element - Bootstrap rows/columns</source>
+			</trans-unit>			
+			<trans-unit id="flux.fluidpage.description">
+				<source>Description can be entered in LLL file locallang.xlf of extension provider</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage">
+				<source>1 column page</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage2col">
+				<source>2 columns page</source>
+			</trans-unit>			
+			<trans-unit id="flux.fluidpage2">
+				<source>1 column page My</source>
+			</trans-unit>
+			<trans-unit id="flux.fluidpage.description">
+				<source>Description can be entered in LLL file locallang.xlf of extension provider</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

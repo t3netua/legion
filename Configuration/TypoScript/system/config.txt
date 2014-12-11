@@ -1,0 +1,15 @@
+#[globalVar = TSFE:id = 1]
+page {
+	bodyTag >
+	bodyTagCObject = COA
+	bodyTagCObject {
+		10 = TEXT
+		10 {
+			value = js-ready
+			required = 1
+			noTrimWrap = | class="|"|
+		}
+		wrap = <body |>
+	}
+}
+#[global] 

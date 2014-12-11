@@ -1,0 +1,48 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+<nav class="navbar navbar-default navbar-static-top tm_navbar clearfix" role="navigation">
+<v:page.menu classActive="active" classCurrent="current" classHasSubpages="sub-menu" classFirst="first" classLast="last">
+	<f:if condition="{menu}">
+		<ul class="nav sf-menu clearfix">
+			<f:for each="{menu}" as="menuPages" iteration="iteration">
+				<li{f:if(then: ' class="{menuPages.class}"', else: '', condition: '{menuPages.class}')}>
+					<f:if condition="{menuPages.current} == 1">
+						<f:then>
+							<span href="{menuPages.link}"{f:if(then: ' title="{menuPages.nav_title}"', else: '', condition: '{menuPages.nav_title}')}>{menuPages.title}{f:if(then: '<span></span>', else: '', condition: '{menuPages.hasSubPages} == 1')}</span>
+						</f:then>
+						<f:else>
+							<a href="{menuPages.link}"{f:if(then: ' title="{menuPages.nav_title}"', else: '', condition: '{menuPages.nav_title}')}>{menuPages.title}{f:if(then: '<span></span>', else: '', condition: '{menuPages.hasSubPages} == 1')}</a>
+						</f:else>
+					</f:if>
+					<f:if condition="{menuPages.hasSubPages} == 1">
+						<f:render section="subMenuPages" arguments="{uid: menuPages.uid, subtitle: menuPages.subtitle}"/>
+					</f:if>
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+</v:page.menu>
+</nav>
+
+<f:section name="subMenuPages">
+	<v:page.menu pageUid="{uid}" classActive="active" classCurrent="current" classHasSubpages="dropdown" classFirst="first" classLast="last">
+		<ul class="submenu">
+			<f:if condition="{menu}">
+				<f:for each="{menu}" as="subMenuPages" iteration="iteration">
+					<li{f:if(then: ' class="{subMenuPages.class}"', else: '', condition: '{subMenuPages.class}')}>
+						<f:if condition="{subMenuPages.current} == 1">
+						  <f:then>
+							<span href="{subMenuPages.link}"{f:if(then: ' title="{subMenuPages.nav_title}"', else: '', condition: '{subMenuPages.nav_title}')}>{subMenuPages.title}</span>
+						  </f:then>
+						  <f:else>
+							<a href="{subMenuPages.link}"{f:if(then: ' title="{subMenuPages.nav_title}"', else: '', condition: '{subMenuPages.nav_title}')}>{subMenuPages.title}</a>
+						  </f:else>
+						</f:if>
+					</li>
+				</f:for>
+			</f:if>
+		</ul>
+	</v:page.menu>
+</f:section>
+
+
+

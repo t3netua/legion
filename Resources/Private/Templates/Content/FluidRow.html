@@ -1,0 +1,96 @@
+{namespace v=Tx_Vhs_ViewHelpers}
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
+<f:layout name="Content" />
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:v="http://fedext.net/ns/vhs/ViewHelpers"
+     xmlns:flux="http://fedext.net/ns/flux/ViewHelpers"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+<f:section name="Configuration">
+	<flux:form id="fluidrow" label="FCE: Bootstrap row/columns" options="{icon: 'Icons/Content/FluidRow.gif', group: 'FCE'}">
+		<flux:field.checkbox name="container" label="Container (use .container for a fixed width container)" default="1" requestUpdate="1"/>
+		<flux:field.checkbox name="settings.fluid" label="Full-width container (use .container-fluid for a full width container, spanning the entire width of your viewport)" default="0" displayCond="FIELD:container:>:0"/>
+		<flux:field.input name="mtopout" size="3" label="Margin TOP for container"/>
+		<flux:field.input name="mbottomout" size="3" label="Margin BOTTOM for container"/>
+
+		<flux:field.input name="colorcontainer" label="Background color of full-width container">
+			<flux:wizard.colorPicker label="Choose color" hideParent="1" dim="20x20" width="600" height="600" exampleImg="EXT:flux/Resources/Public/Icons/ColorWheel.png"/>
+		</flux:field.input>
+		
+		<flux:field.input name="ptopin" size="3" label="Padding TOP INSIDE of container"/>
+		<flux:field.input name="pbottomin" size="3" label="Padding BOTTOM INSIDE of container"/>
+		
+		<flux:field.input name="addContainerClass" label="Additional CSS class (for container)" />
+		<flux:field.checkbox name="offrow" label="Exclude 'row' container" default="0" />
+		
+		<flux:form.section name="columns" label="Columns">
+			<flux:form.object name="column" label="Column classes">
+				
+				<flux:field.select name="class-xs" label="Phones: Width column for Extra small grid (less than 768px)" items="{f:render(section: 'Value-xs', arguments: {iteration: iteration}) -> v:iterator.loop(count: 12, iteration: 'iteration', minimum: 1)}" />
+				<flux:field.select name="class-offset-xs" label="Phones: Offset for Extra small grid (less than 768px) - move columns to the right using .col-xs-offset-* classes. These classes increase the left margin of a column by * columns" items="{f:render(section: 'Offset-xs', arguments: {iteration: iteration}) -> v:iterator.loop(count: 13, iteration: 'iteration', minimum: 1)}" />
+				<flux:field.select name="class-sm" label="Tablets: Width column for Small grid (up to 768 px)" items="{f:render(section: 'Value-sm', arguments: {iteration: iteration}) -> v:iterator.loop(count: 12, iteration: 'iteration', minimum: 1)}" />
+				<flux:field.select name="class-offset-sm" label="Tablets: Offset for Small grid (up to 768 px) - move columns to the right using .col-sm-offset-* classes. These classes increase the left margin of a column by * columns" items="{f:render(section: 'Offset-sm', arguments: {iteration: iteration}) -> v:iterator.loop(count: 13, iteration: 'iteration', minimum: 1)}" />
+				<flux:field.select name="class-md" label="Desktops: Width column for Medium grid (up to 992px)" items="{f:render(section: 'Value-md', arguments: {iteration: iteration}) -> v:iterator.loop(count: 12, iteration: 'iteration', minimum: 1)}" />
+				<flux:field.select name="class-offset-md" label="Desktops: Offset for Medium grid (up to 992px) - move columns to the right using .col-md-offset-* classes. These classes increase the left margin of a column by * columns" items="{f:render(section: 'Offset-md', arguments: {iteration: iteration}) -> v:iterator.loop(count: 13, iteration: 'iteration', minimum: 1)}" />
+				<flux:field.select name="class-lg" label="Larger desktops: Width column for Large grid (up to 1200px)" items="{f:render(section: 'Value-lg', arguments: {iteration: iteration}) -> v:iterator.loop(count: 12, iteration: 'iteration', minimum: 1)}" />
+				<flux:field.select name="class-offset-lg" label="Larger desktops: Offset for Large grid (up to 1200px) - move columns to the right using .col-ld-offset-* classes. These classes increase the left margin of a column by * columns" items="{f:render(section: 'Offset-lg', arguments: {iteration: iteration}) -> v:iterator.loop(count: 13, iteration: 'iteration', minimum: 1)}" />
+																									
+
+				<flux:field.checkbox name="fullheight" label="Full height (add 'full-height' css class)" />
+				<flux:field.input name="additionalClass" label="Additional CSS class for column (example: text-center)" />
+			</flux:form.object>
+		</flux:form.section>
+
+		<flux:grid>
+			<flux:grid.row>
+				<f:for each="{columns}" as="sectionObject" iteration="iteration">
+					<v:var.set name="width" value="{sectionObject.column.class-md -> v:format.substring(start: 7)}" />
+					<v:var.set name="percent" value="{width -> v:math.division(b: 12) -> v:math.product(b: 100) -> v:math.round(decimals: 2)}" />
+					<flux:grid.column style="width: {percent}%">
+						<flux:form.content name="column{iteration.cycle}" label="Column#{iteration.cycle} / {percent}%" />
+					</flux:grid.column>
+				</f:for>
+			</flux:grid.row>
+		</flux:grid>
+		
+
+	</flux:form>
+</f:section>
+
+<f:section name="Preview">
+	<flux:widget.grid />
+</f:section>
+
+<f:section name="Main">
+<f:if condition="{container} == 1">
+	<div class="container{f:if(condition: '{settings.fluid}', then: '-fluid')}{f:if(condition: '{addContainerClass}', then: ' {addContainerClass}')}" {v:if(then: 'style="{f:if(condition: \'{colorcontainer}\', then: \'background-color:{colorcontainer};\')}{f:if(condition: \'{mtopout}\', then: \'margin-top:{mtopout}px;\')}{f:if(condition: \'{mbottomout}\', then: \'margin-bottom:{mbottomout}px;\')}{f:if(condition: \'{ptopin}\', then: \'padding-top:{ptopin}px;\')}{f:if(condition: \'{pbottomin}\', then: \'padding-bottom:{pbottomin}px;\')}"', else: '', stack: {0: '{mtopout}', 1: 'OR', 2: '{mbottomout}', 3: 'OR', 4: '{colorcontainer}'})}>
+</f:if>
+<f:if condition="{offrow} == 0">
+	<div class="row">
+</f:if>
+
+	<f:for each="{columns}" as="sectionObject" iteration="iteration">
+		<div class={v:format.replace(substring: '" ', content: '"{f:if(condition: \'{sectionObject.column.class-lg}\', then: \'{sectionObject.column.class-lg}\')}{f:if(condition: \'{sectionObject.column.class-md}\', then: \' {sectionObject.column.class-md}\')}{f:if(condition: \'{sectionObject.column.class-sm}\', then: \' {sectionObject.column.class-sm}\')}{f:if(condition: \'{sectionObject.column.class-xs}\', then: \' {sectionObject.column.class-xs}\')}{f:if(condition: \'{sectionObject.column.class-offset-lg}\', then: \' {sectionObject.column.class-offset-lg}\')}{f:if(condition: \'{sectionObject.column.class-offset-md}\', then: \' {sectionObject.column.class-offset-md}\')}{f:if(condition: \'{sectionObject.column.class-offset-sm}\', then: \' {sectionObject.column.class-offset-sm}\')}{f:if(condition: \'{sectionObject.column.class-offset-xs}\', then: \' {sectionObject.column.class-offset-xs}\')}{f:if(condition: sectionObject.column.fullheight, then: \' full-height\')}{f:if(condition: sectionObject.column.additionalClass, then: \' {sectionObject.column.additionalClass}\')}', replacement: '"')}">
+			<flux:flexform.renderContent area="column{iteration.cycle}" />
+		</div>
+	</f:for>
+
+<f:if condition="{offrow} == 0">
+	</div>
+</f:if>
+<f:if condition="{container} == 1">
+	</div>
+</f:if>
+</f:section>
+
+<f:section name="Offset-md">col-md-offset-{iteration.index}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+<f:section name="Offset-sm">col-sm-offset-{iteration.index}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+<f:section name="Offset-xs">col-xs-offset-{iteration.index}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+<f:section name="Offset-lg">col-lg-offset-{iteration.index}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+
+<f:section name="Value-md">col-md-{iteration.cycle}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+<f:section name="Value-sm">col-sm-{iteration.cycle}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+<f:section name="Value-xs">col-xs-{iteration.cycle}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+<f:section name="Value-lg">col-lg-{iteration.cycle}{f:if(condition: iteration.isLast, else: ',')}</f:section>
+
+</div>

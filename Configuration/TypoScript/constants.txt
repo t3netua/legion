@@ -13,13 +13,13 @@ plugin.tx_legionsite.view {
 ###################################################
 plugin.tx_fluidcontentcore {
 	view {
-		templateRootPath = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/
-		partialRootPath  = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Partials/
-		layoutRootPath   = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Layouts/
+		#templateRootPath = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/
+		#partialRootPath  = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Partials/
+		#layoutRootPath   = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Layouts/
 	}
 	settings {
 		defaults {
-			template = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/CoreContent/Default.html
+			#template = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/CoreContent/Default.html
 			variant =
 			version =
 			# mode of defaults usage. Possible values: "record", "preselect" or empty. When set to "record", default values will be saved in records when they are saved, but only if no variant or version was chosen. If set to "preselect" the values entered in defaults will be the initially selected values when creating or editing records. If set to anything else, defaults are used only when the record has empty values in variant or version but the defaults will not be saved to the database.

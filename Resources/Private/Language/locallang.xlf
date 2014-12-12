@@ -3,18 +3,104 @@
 	<file source-language="en" datatype="plaintext" original="messages" product-name="legion_site" date="2014-12-05T15:46:26+00:00">
 		<header/>
 		<body>
-			<trans-unit id="flux.fluidcontent">
+			<!-- FCE_BootstrapRows.html -->
+			<trans-unit id="flux.t3ua_row" xml:space="preserve">
 				<source>Bootstrap row/columns</source>
 			</trans-unit>
-			<trans-unit id="flux.fluidcontent.sheets.options" xml:space="preserve">
+			<trans-unit id="flux.t3ua_row.description" xml:space="preserve">
+				<source>The Bootstrap grid system has four tiers of classes: xs (phones), sm (tablets), md (desktops), and lg (larger desktops). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</source>
+			</trans-unit>			
+			<trans-unit id="flux.t3ua_row.sheets.options" xml:space="preserve">
 				<source>Options</source>
 			</trans-unit>	
-			<trans-unit id="flux.fluidcontent.sheets.columns" xml:space="preserve">
+			<trans-unit id="flux.t3ua_row.sheets.columns" xml:space="preserve">
 				<source>Columns</source>
 			</trans-unit>
-			<trans-unit id="flux.fluidcontent.sheets.distance" xml:space="preserve">
+			<trans-unit id="flux.t3ua_row.sheets.distance" xml:space="preserve">
 				<source>Margins and paddings</source>
 			</trans-unit>
+			<!-- /FCE_BootstrapRows.html -->
+			
+			<!-- FCE_Carousel.html -->
+			<trans-unit id="flux.t3ua_carousel">
+				<source>Carousel (camera)</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.description" xml:space="preserve">
+				<source>Content elements, images or simple texts (each type supporting captions) in a carousel matrix with JS based slide change.</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.quickselect" xml:space="preserve">
+				<source>Display circle icons for direct selection of slides, default top right corner</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.quickselectType" xml:space="preserve">
+				<source>Choose navigation display type</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.interval" xml:space="preserve">
+				<source>Interval between image changes, in miliseconds (default: 5000)</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.id" xml:space="preserve">
+				<source>DOM element ID (override not necessary but possible)</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.labelNext" xml:space="preserve">
+				<source>Label: next (empty will display default arrow)</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.labelPrev" xml:space="preserve">
+				<source>Label: previous (empty will display default arrow)</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.width" xml:space="preserve">
+				<source>Image width, supports TS IMAGE widths, fx 250c to set width 250 with cropping</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.sheets.elements" xml:space="preserve">
+				<source>Content elements</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.sections.elements" xml:space="preserve">
+				<source>Content elements</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.text" xml:space="preserve">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.text.title" xml:space="preserve">
+				<source>Header</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.text.size" xml:space="preserve">
+				<source>Text size</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.text.text" xml:space="preserve">
+				<source>Text</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.content" xml:space="preserve">
+				<source>Content elements</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.content.id" xml:space="preserve">
+				<source>Content area ID</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.image" xml:space="preserve">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.objects.image.file" xml:space="preserve">
+				<source>Image file</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.sheets.styles" xml:space="preserve">
+				<source>Styles</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.void" xml:space="preserve">
+				<source> </source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.autostart" xml:space="preserve">
+				<source>Should the carousel start sliding on page-load?</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.quickselectStyles" xml:space="preserve">
+				<source>Optional CSS rule for the quick slide selector dots container</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.quickselectDotStyles" xml:space="preserve">
+				<source>Optional CSS rule for the quick slide selector dots</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.navigationStyles" xml:space="preserve">
+				<source>Optional CSS rule for the navigation dots</source>
+			</trans-unit>
+			<trans-unit id="flux.t3ua_carousel.fields.settings.carousel.innerStyles" xml:space="preserve">
+				<source>CSS rule for inside of carousel</source>
+			</trans-unit>
+			<!-- /FCE_Carousel.html -->			
 			
 			<trans-unit id="flux.fluid-row">
 				<source>Fluid content element - Bootstrap rows/columns</source>

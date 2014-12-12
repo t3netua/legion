@@ -17,5 +17,7 @@ $userTsConfig = \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl(
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) . 'Configuration/BackendTS/User/setup.txt');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig($userTsConfig);
 
+$GLOBALS['TYPO3_CONF_VARS']['FluidTYPO3.FluidcontentCore']['variants']['header'][] = 'legion_site';
 $GLOBALS['TYPO3_CONF_VARS']['FluidTYPO3.FluidcontentCore']['variants']['textpic'][] = 'legion_site';
 $GLOBALS['TYPO3_CONF_VARS']['FluidTYPO3.FluidcontentCore']['variants']['image'][] = 'legion_site';
+//$GLOBALS['TYPO3_CONF_VARS']['FluidBT.Fluidbootstraptheme']['variants']['carousel'][] = 'legion_site';

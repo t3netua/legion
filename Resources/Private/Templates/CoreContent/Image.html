@@ -6,7 +6,7 @@
 
 <f:section name="Configuration">
 	<flux:form id="image">
-		<f:render partial="Properties/Header" arguments="{_all}" />
+
 		<f:render partial="Properties/Container" arguments="{_all}" />
 		<f:render partial="Properties/Images" arguments="{_all}" />
 		<f:if condition="{settings.extendedCaptions}">
@@ -40,11 +40,37 @@
 	<v:resource.record.fal record="{record}" field="image" table="tt_content" as="images">
 		<f:for each="{images}" as="image" iteration="iteration">
 			<v:tag name="{settings.caption.tagName}">
-				<f:render partial="Content/Image" arguments="{_all}" />
+
+<f:if condition="{image.link}">
+	<f:then>
+		<v:link.typolink configuration="{parameter: image.link}">
+			<f:render section="newimage" arguments="{_all}" />
+		</v:link.typolink>
+	</f:then>
+	<f:else>
+		<f:render section="newimage" arguments="{_all}" />
+	</f:else>
+</f:if>			
+			
 				<flux:content.render area="content{image.checksum}" />
 			</v:tag>
 		</f:for>
 	</v:resource.record.fal>
+</f:section>
+
+
+<f:section name="newimage">
+	<f:if condition="{settings.directInclusion}">
+		<f:then>
+			<img src="{image.url}" alt="{f:if(condition: image.alternative, then: image.alternative, else: image.name)}"
+			     class="{settings.image.className -> v:format.replace(substring: ',', replacement: ' ')}" />
+		</f:then>
+		<f:else>
+			<f:image src="{image.url}" treatIdAsReference="TRUE" alt="{f:if(condition: image.alternative, then: image.alternative, else: image.name)}" class="{settings.image.className -> v:format.replace(substring: ',', replacement: ' ')}"
+			         width="{record.imagewidth -> v:or(alternative: '-1')}{f:if(condition: record.imagewidth, then: settings.scaleMode)}"
+			         height="{record.imageheight -> v:or(alternative: '-1')}{f:if(condition: record.imageheight, then: settings.scaleMode)}" />
+		</f:else>
+	</f:if>
 </f:section>
 
 </div>

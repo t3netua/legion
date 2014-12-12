@@ -4,7 +4,7 @@ page {
 		baseUrlOn = 1
 		doctype = html5
 		xmlprologue = none
-		#removeDefaultJS = 1
+		removeDefaultJS = 1
 		#removeDefaultJS = external
 		#removeDefaultCSS = 1
 		#removePageCss = 1

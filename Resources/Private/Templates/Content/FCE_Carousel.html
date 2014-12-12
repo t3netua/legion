@@ -66,6 +66,16 @@
 				<flux:field.text name="settings.carousel.navigationStyles" cols="130" rows="3" />
 				<flux:field.text name="settings.carousel.innerStyles" cols="130" rows="3" />
 			</flux:form.sheet>
+			<flux:form.sheet name="classes">
+				<flux:field.custom name="void">
+					<h3>Classes</h3>
+
+					<p>
+						Below you can enter a few classes to be used for this specific carousel instance.
+					</p>
+				</flux:field.custom>
+				<flux:field.text name="settings.carousel.containerClass" cols="130" rows="1" />
+			</flux:form.sheet>
 		</flux:form>
 	</f:section>
 
@@ -81,91 +91,25 @@
 	</f:section>
 
 	<f:section name="Main">
-		<f:if condition="{settings.carousel.quickselectDotStyles">
-			<v:asset.style name="carousel{settings.carousel.id}quickselectdots">
-				.{settings.carousel.id} .carousel-indicators li {
-				<v:variable.get name="settings.carousel.quickselectDotStyles" />
-				}
-			</v:asset.style>
-		</f:if>
-		<f:if condition="{settings.carousel.quickselectStyles">
-			<v:asset.style name="carousel{settings.carousel.id}quickselect">
-				.{settings.carousel.id} .carousel-indicators {
-				<v:variable.get name="settings.carousel.quickselectStyles" />
-				}
-			</v:asset.style>
-		</f:if>
-		<f:if condition="{settings.carousel.navigationStyles">
-			<v:asset.style name="carousel{settings.carousel.id}navigation">
-				.{settings.carousel.id} .carousel-control {
-				<v:variable.get name="settings.carousel.navigationStyles" />
-				}
-			</v:asset.style>
-		</f:if>
-		<f:if condition="{settings.carousel.innerStyles">
-			<v:asset.style name="carousel{settings.carousel.id}inner">
-				.{settings.carousel.id} .carousel-inner {
-				<v:variable.get name="settings.carousel.innerStyles" />
-				}
-			</v:asset.style>
-		</f:if>
-		<div id="{settings.carousel.id}" class="{settings.carousel.id} carousel slide" data-interval="{settings.carousel.interval}"
-		{f:if(condition: settings.carousel.autostart, then: ' data-ride="carousel"')}>
-			<f:if condition="{settings.carousel.quickselect}">
-				<ol class="carousel-indicators">
-					<f:for each="{elements}" as="image" iteration="iteration">
-						<li data-target="#{settings.carousel.id}" data-slide-to="{iteration.index}" class="{f:if(condition: iteration.isFirst, then: 'active')}">
-							<f:if condition="{settings.carousel.quickselectType} == 'images'">
-								<f:if condition="{image.content.iconImage}">
-									<f:image src="{image.content.iconImage}" alt="{image.content.header}" />
-								</f:if>
-							</f:if>
-							<f:if condition="{settings.carousel.quickselectType} == 'numbers'">
-								{iteration.cycle}
-							</f:if>
-						</li>
-					</f:for>
-				</ol>
-			</f:if>
-			<div class="carousel-inner">
+			<div id="{settings.carousel.id}" class="{settings.carousel.containerClass}">
 				<f:for each="{elements}" as="element" iteration="iteration">
-					<div class="item{f:if(condition: iteration.isFirst, then: ' active')}">
-						<f:for each="{element}" key="elementType" as="elementData">
-							<f:render section="{elementType -> v:format.case(case: 'ucfirst')}" arguments="{_all}" />
+					<f:for each="{element}" key="elementType" as="elementData">
+						<div data-src="{elementData.file}">
 							<f:if condition="{0: elementData.caption, 1: elementData.header} != {0: '', 1: ''}">
-								<div class="carousel-caption">
-	
+								<div class="camera-caption fadeIn">
 									<f:if condition="{0: elementData.header} != {0: ''}">
-										<h3>{elementData.header -> f:format.raw()}</h3>
+										<p class="title">{elementData.header -> f:format.raw()}</p>
 									</f:if>
 									<f:if condition="{0: elementData.caption} != {0: ''}">
-										{elementData.caption -> f:format.html()}
+										<p class="descrip">{elementData.caption -> f:format.html()}</p>
 									</f:if>
+									<a href="#" class="btn-default btn2">More info</a>
 								</div>
 							</f:if>
-						</f:for>
-					</div>
+						</div>
+					</f:for>
 				</f:for>
 			</div>
-			<f:if condition="{settings.carousel.labelPrev}">
-				<f:then>
-					<a class="carousel-control left" href="#{settings.carousel.id}" data-slide="prev">{settings.carousel.labelPrev
-						-> f:format.raw()}</a>
-				</f:then>
-				<f:else>
-					<a class="carousel-control left" href="#{settings.carousel.id}" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-				</f:else>
-			</f:if>
-			<f:if condition="{settings.carousel.labelNext}">
-				<f:then>
-					<a class="carousel-control right" href="#{settings.carousel.id}" data-slide="next">{settings.carousel.labelNext
-						-> f:format.raw()}</a>
-				</f:then>
-				<f:else>
-					<a class="carousel-control right" href="#{settings.carousel.id}" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-				</f:else>
-			</f:if>
-		</div>
 	</f:section>
 
 	<f:section name="Image">

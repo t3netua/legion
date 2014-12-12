@@ -16,6 +16,7 @@ plugin.tx_fluidcontentcore {
 		#templateRootPath = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Templates/
 		#partialRootPath  = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Partials/
 		#layoutRootPath   = EXT:{$siteProvider}/Resources/Private/Templates/Extensions/Fluidcontent_core/Layouts/
+		#overlays.tx_legion_site.partialRootPath = EXT:{$siteProvider}/Resources/Private/Partials/
 	}
 	settings {
 		defaults {

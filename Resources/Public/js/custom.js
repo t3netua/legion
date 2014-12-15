@@ -1,4 +1,4 @@
-$(window).load(function() {
+/*$(window).load(function() {
     $(function() {
 		$('#foo1').carouFredSel({
 			auto: false,
@@ -22,7 +22,7 @@ $(window).load(function() {
 			}
 		});
 	}); 	 				
-});
+});*/
 	
 $(document).ready(function(){
 	jQuery('.camera_wrap').camera();

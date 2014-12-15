@@ -7,74 +7,18 @@
 
 	<f:section name="Configuration">
 		<flux:form id="t3ua_carousel" options="{useTypoScript: 0, group: 'FCE', icon: '{f:uri.resource(path: \'Icons/Content/glyphicons_319_sort.png\')}'}">
-			<flux:field.checkbox name="settings.carousel.quickselect" default="1" />
-			<flux:field.select name="settings.carousel.quickselectType" items="{images: 'images', dots: 'dots', numbers: 'numbers'}" />
-			<flux:field.input name="settings.carousel.interval" default="5000" eval="int,trim" />
-			<flux:field.input name="settings.carousel.id" default="{v:random.string(length: 8)}" />
-			<flux:field.input name="settings.carousel.labelNext" default="Next" />
-			<flux:field.input name="settings.carousel.labelPrev" default="Prev" />
-			<flux:field.input name="settings.carousel.width" default="1170c" />
-			<flux:field.checkbox name="settings.carousel.autostart" />
-			<flux:grid>
-				<v:condition.type.isArray value="{elements}">
-					<f:for each="{elements}" as="element" iteration="iteration">
-						<f:for each="{element}" key="elementType" as="elementData">
-							<f:if condition="{0: elementType} == {0: 'content'}">
-								<flux:grid.row>
-									<flux:grid.column name="{elementData.id}" label="Content: {elementData.id}" />
-								</flux:grid.row>
-							</f:if>
-						</f:for>
-					</f:for>
-				</v:condition.type.isArray>
-			</flux:grid>
 			<flux:form.sheet name="elements">
 				<flux:form.section name="elements">
-					<flux:form.object name="text">
-						<flux:field.input name="title" />
-						<flux:field.select name="size" items="h1,h2,h3,h4,h5,h6,h7,h8" />
-						<flux:field.text name="text" enableRichText="TRUE" />
-						<f:render section="SharedObjectFields" arguments="{_all}" />
-					</flux:form.object>
-					<flux:form.object name="content">
-						<flux:field.input name="id" default="{v:random.string(length: 6)}" />
-						<f:render section="SharedObjectFields" arguments="{_all}" />
-					</flux:form.object>
 					<flux:form.object name="image">
 						<flux:field.file name="file" />
-						<f:render section="SharedObjectFields" arguments="{_all}" />
+						<flux:field.input name="header" label="Header for slide" />
+						<flux:field.input name="caption" label="Text for slide" />		
+						<flux:field.input name="buttonTitle" label="Title for button" default="More info"/>
+						<flux:field.input name="buttonLink" label="Link for button">
+									<flux:wizard.link activeTab="page" />
+						</flux:field.input>
 					</flux:form.object>
 				</flux:form.section>
-			</flux:form.sheet>
-			<flux:form.sheet name="styles">
-				<flux:field.custom name="void">
-					<h3>Styling</h3>
-
-					<p>
-						Below you can enter a few styles to be used for this specific carousel instance.
-						Selector and curly braces are automatically added. In other words, these work just
-						like inline CSS "style" attributes in HTML elements.
-					</p>
-					<h4>Example definitions</h4>
-					<ul>
-						<li>background-color: #440033</li>
-						<li>font-size: 18px; color: #000000</li>
-					</ul>
-				</flux:field.custom>
-				<flux:field.text name="settings.carousel.quickselectStyles" cols="130" rows="3" />
-				<flux:field.text name="settings.carousel.quickselectDotStyles" cols="130" rows="3" />
-				<flux:field.text name="settings.carousel.navigationStyles" cols="130" rows="3" />
-				<flux:field.text name="settings.carousel.innerStyles" cols="130" rows="3" />
-			</flux:form.sheet>
-			<flux:form.sheet name="classes">
-				<flux:field.custom name="void">
-					<h3>Classes</h3>
-
-					<p>
-						Below you can enter a few classes to be used for this specific carousel instance.
-					</p>
-				</flux:field.custom>
-				<flux:field.text name="settings.carousel.containerClass" cols="130" rows="1" />
 			</flux:form.sheet>
 		</flux:form>
 	</f:section>
@@ -84,14 +28,8 @@
 		<flux:widget.grid />
 	</f:section>
 
-	<f:section name="SharedObjectFields">
-		<flux:field.input name="header" label="Optional header for caption" />
-		<flux:field.text name="caption" label="Optional caption body text" enableRichText="TRUE" />
-		<flux:field.file name="iconImage" label="Optional Image for Navigation Dots" />
-	</f:section>
-
 	<f:section name="Main">
-			<div id="{settings.carousel.id}" class="{settings.carousel.containerClass}">
+			<div class="camera_wrap">
 				<f:for each="{elements}" as="element" iteration="iteration">
 					<f:for each="{element}" key="elementType" as="elementData">
 						<div data-src="{elementData.file}">
@@ -101,38 +39,19 @@
 										<p class="title">{elementData.header -> f:format.raw()}</p>
 									</f:if>
 									<f:if condition="{0: elementData.caption} != {0: ''}">
-										<p class="descrip">{elementData.caption -> f:format.html()}</p>
+										<p class="descrip">{elementData.caption -> f:format.raw()}</p>
 									</f:if>
-									<a href="#" class="btn-default btn2">More info</a>
+									<f:if condition="{0: elementData.buttonLink} != {0: ''}">
+										<f:link.page pageUid="{elementData.buttonLink}" class="btn-default btn2">	
+											{elementData.buttonTitle}
+										</f:link.page>
+									</f:if>
 								</div>
 							</f:if>
 						</div>
 					</f:for>
 				</f:for>
 			</div>
-	</f:section>
-
-	<f:section name="Image">
-		<f:if condition="{elementData.file}">
-			<f:then>
-				<f:image src="{elementData.file}" alt="{elementData.header}" width="{settings.carousel.width}" />
-			</f:then>
-		</f:if>
-	</f:section>
-
-	<f:section name="Content">
-		<div class="container">
-			<flux:content.render area="{elementData.id}" />
-		</div>
-	</f:section>
-
-	<f:section name="Text">
-		<div class="container">
-			<f:if condition="{elementData.title}">
-				<{elementData.size}>{elementData.title -> f:format.htmlentities()}
-			</f:if>
-			{elementData.text -> f:format.html()}
-		</div>
 	</f:section>
 
 </div>

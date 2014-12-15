@@ -21,3 +21,5 @@ $GLOBALS['TYPO3_CONF_VARS']['FluidTYPO3.FluidcontentCore']['variants']['header']
 $GLOBALS['TYPO3_CONF_VARS']['FluidTYPO3.FluidcontentCore']['variants']['textpic'][] = 'legion_site';
 $GLOBALS['TYPO3_CONF_VARS']['FluidTYPO3.FluidcontentCore']['variants']['image'][] = 'legion_site';
 //$GLOBALS['TYPO3_CONF_VARS']['FluidBT.Fluidbootstraptheme']['variants']['carousel'][] = 'legion_site';
+
+$information = "Hello1";
